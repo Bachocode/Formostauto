@@ -1,0 +1,270 @@
+/* Styles communs pour toutes les pages */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: #222;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #084526 0%, #0a5c32 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: headerPulse 8s infinite;
+}
+
+@keyframes headerPulse {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, 10px); }
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  animation: slideDown 0.8s ease-out;
+}
+
+header p {
+  font-size: 1.1em;
+  position: relative;
+  z-index: 1;
+  animation: slideDown 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main content */
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Headings */
+h1, h2 {
+  color: #084526;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.6em;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #084526;
+  position: relative;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0a5c32, #084526);
+  transition: width 0.8s ease;
+}
+
+h2:hover::after {
+  width: 100%;
+}
+
+/* Paragraphs and lists */
+p, li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ul {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  padding-left: 5px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+li:hover {
+  transform: translateX(10px);
+  color: #0a5c32;
+}
+
+/* Links */
+a {
+  color: #084526;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a5c32;
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #0a5c32;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Sections */
+section {
+  margin-bottom: 30px;
+  background: #f9fafb;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: scaleIn 0.6s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 30px 20px;
+  color: #777;
+  border-top: 2px solid #eee;
+  margin-top: 60px;
+  background: linear-gradient(to top, #f5f5f5, #ffffff);
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll animations */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.3em;
+  }
+  
+  main {
+    padding: 20px 15px;
+  }
+  
+  section {
+    padding: 20px;
+  }
+}
